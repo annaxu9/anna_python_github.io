@@ -2,6 +2,8 @@ import math
 
 # 1. is_even assignment
 # 2. solve_quadratic assignment
+# 3. to_hex
+# 4. hex_code
 
 def is_even(x):
     if (x % 2) == 1:
@@ -19,3 +21,28 @@ def solve_quadratic(a,b,c):
             return x
     else:
         return None
+
+hexidecimal_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+
+def to_hex(n):
+    if (n // 16) > 0:
+        remainder_1 = n % 16
+        remainder_2 = (n // 16) % 16
+        return hexidecimal_list[remainder_2] + hexidecimal_list[remainder_1]
+    else: 
+        return hexidecimal_list[n]
+
+def hex_code(red,green,blue):
+    if (red < 16):
+        hex_r = '0' + to_hex(red)
+    else:
+        hex_r = to_hex(red)
+    if (green < 16):
+        hex_g = '0' + to_hex(green)
+    else:
+        hex_g = to_hex(green)
+    if (blue < 16):
+        hex_b = '0' + to_hex(blue)
+    else:
+        hex_b = to_hex(blue)
+    return '#' + hex_r + hex_g + hex_b
