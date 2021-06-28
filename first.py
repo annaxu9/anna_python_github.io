@@ -1,9 +1,12 @@
 import math
 
-# 1. is_even assignment
-# 2. solve_quadratic assignment
+# 1. is_even 
+# 2. solve_quadratic 
 # 3. to_hex
 # 4. hex_code
+# 5. my_range
+# 6. my_reverse
+# 7. big_fibonacci
 
 def is_even(x):
     if (x % 2) == 1:
@@ -46,3 +49,38 @@ def hex_code(red,green,blue):
     else:
         hex_b = to_hex(blue)
     return '#' + hex_r + hex_g + hex_b
+
+def my_range(m,n):
+    output = []
+    while m < n:
+        output.append(m)
+        m+=1
+    return output
+
+def my_reverse(l):
+    i = len(l) - 1
+    output = []
+    while i >= 0:
+        output.append(l[i])
+        i-=1
+    return output
+
+def big_fibonacci(n):
+    loop = True
+    fib1 = 1
+    fib2 = 1
+    while loop:
+        num_digits = len(str(fib2))
+        if n == num_digits:
+            return fib2
+            loop = False
+        else:
+            place_holder = fib2
+            fib2 = fib1 + fib2
+            fib1 = place_holder
+
+
+
+
+
+
