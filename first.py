@@ -7,6 +7,8 @@ import math
 # 5. my_range
 # 6. my_reverse
 # 7. big_fibonacci
+# 8. is_prime
+# 9. primes_below
 
 def is_even(x):
     if (x % 2) == 1:
@@ -79,8 +81,25 @@ def big_fibonacci(n):
             fib2 = fib1 + fib2
             fib1 = place_holder
 
+def is_prime(n):
+    if n <= 1:
+        return False
+    pot_factor = 2
+    while (n > pot_factor):
+        if (n % pot_factor == 0):
+            return False
+        pot_factor += 1
+    return True
 
-
+def primes_below(n):
+    output = []
+    n-=1
+    while n > 0:
+        if is_prime(n):
+            output.append(n)
+        n-=1
+    return my_reverse(output)
+        
 
 
 
