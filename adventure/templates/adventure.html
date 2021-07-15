@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: palevioletred;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        }
+
+        h1 {
+            font-size: 80px;
+        }
+
+        p, a {
+            font-size: 36px;
+        }
+
+        a {
+            color: rgb(37, 30, 71);
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 100px auto;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+
+        {% autoescape false %}
+        <p>{{text}}</p>
+        {% endautoescape %}
+
+
+        {% if choices %}
+
+            <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                    <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            
+            <p>THE END.</p>
+
+
+            <p><a href="{{url_for('start')}}">Play again.</a></p>
+        {% endif %}
+
+
+    </div>
+</body>
+
+</html>
